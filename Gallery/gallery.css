@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin-inline: 100px;
+
+}
+.Galimg1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .galimg {
+    height: 33%;
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    margin: 0 10px 10px 0;
+
+    
+  }
+  
+  .galimg>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+  /* .galimg img:hover{
+    
+
+  } */

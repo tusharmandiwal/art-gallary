@@ -1,0 +1,151 @@
+/* add poppins embed link in css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    margin :0;
+    padding :0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    color:white;
+    overflow: hidden;
+    height: auto;
+
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form{
+
+    height:60vh;
+    width: auto;
+    border: rgba(255, 255, 255, 0.196) 0.5px inset;
+    border-radius: 15px;
+    background-color: rgba(63, 99, 209, 0.078);
+    backdrop-filter: blur(10px) ;
+    align-items: center;
+    justify-content: center;    
+}
+.content{
+    margin: 40px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+#signin{
+       
+    font-size:3rem;
+}
+.background-vid video{
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+}
+.blackscreen{
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.517);
+    position: absolute;
+
+}
+input{
+    margin: 10px;
+    padding: 10px;
+    width: 20vw;
+    /* border: 1px solid rgba(255, 255, 255, 0.405); */
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.339);
+    
+}
+input::placeholder{
+   color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+#submit{
+    margin: 10px;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    color: white;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 80%);
+    
+    cursor: pointer;
+    border: 0px solid;
+    transition: .5s;
+   
+}
+#submit:hover{
+    background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+    color: rgb(0, 0, 0);
+}
+button:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+.orline{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    
+}
+.or{
+    padding: 5px;
+}
+.line{
+    width: 40%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#Google{
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    
+    border: 1px solid rgba(142, 107, 107, 0.405);
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    cursor: pointer;
+}
+.sign-in-with-google{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+/* =======media queries====== */
+@media screen and (max-width: 768px){
+    .login-form{
+        width: 80vw;
+        height: 60vh;
+    }
+    input{
+        width: 60vw;
+    }
+    #submit{
+        width: 60vw;
+    }
+    #Google{
+        width: 60vw;
+    }
+    body{
+        overflow: hidden;
+    
+    }
+}
+
