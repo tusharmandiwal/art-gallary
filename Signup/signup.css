@@ -65,9 +65,10 @@ input{
     /* border: 1px solid rgba(255, 255, 255, 0.405); */
     border: none;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.339);
+    background-color: rgb(255, 252, 252);
     
 }
+
 input::placeholder{
    color: white;
     font-size: 15px;
