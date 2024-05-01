@@ -57,7 +57,6 @@ app.post('/Signup', async (req, res) => {
 })
 
 
-
 app.post('/Login', async (req, res)=>{
     const check = await loginList.findOne({email: req.body.email})
     if(!check){
