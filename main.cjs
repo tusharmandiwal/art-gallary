@@ -38,18 +38,25 @@ app.get('/Signup', (req, res) => {
     res.sendFile(path.join(__dirname, 'Signup', 'signup.html'));
 });
 
-
-
-app.post('/Signup', async (req, res)=>{
-   
+app.post('/Signup', async (req, res) => {
     const { email, password } = req.body;
-    
-  
-    const newUser = await loginList.create({email, password });
+
+    // Check if user with the provided email already exists
+    const existingUser = await loginList.findOne({ email });
+
+    if (existingUser) {
+        // User with this email already exists
+        return res.status(400).send(`<script>alert('User with this email already exists'); window.location='/Signup';</script>`);
+    }
+
+    // If user with this email doesn't exist, create a new user
+    const newUser = await loginList.create({ email, password });
     console.log('New user registered:', newUser);
-   
+
     res.redirect('/Login');
 })
+
+
 
 app.post('/Login', async (req, res)=>{
     const check = await loginList.findOne({email: req.body.email})
