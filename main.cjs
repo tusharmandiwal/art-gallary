@@ -1,7 +1,18 @@
+
 const express = require('express');
 const path=require('path');
 const app = express();
 app.use(express.static(path.join(__dirname)));
+
+
+require('./mongodb');
+const loginList = require('./mongodb');
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
+
 
 
 app.get('/home', (req, res) => {
@@ -29,14 +40,38 @@ app.get('/Signup', (req, res) => {
 
 
 
+app.post('/Signup', async (req, res)=>{
+   
+    const { email, password } = req.body;
+    
+  
+    const newUser = await loginList.create({email, password });
+    console.log('New user registered:', newUser);
+   
+    res.redirect('/Login');
+})
+
+app.post('/Login', async (req, res)=>{
+    const check = await loginList.findOne({email: req.body.email})
+    if(!check){
+        res.send("Username or password is incorrect");
+    }
+    else{
+        const checkPassword = await loginList.findOne({password: req.body.password})
+        if(checkPassword){
+            // res.send("password is correct");
+            res.redirect('/');
+        }
+        else{
+            res.send("Password is incorrect");
+        }
+    }
+})
 
 
 
-// app.use((req,res)=>{
-//     res.status(404);
-//     res.send(<h1> ERROR 404 PAGE NOT FOUND<h1>);
-// });
 
-app.listen(9005, ()=>{
-    console.log('listening on port 9005');
+const port = process.env.PORT || 9005;
+app.listen(port, () => {
+    console.log(`Server is running on port http://localhost:${port}`);
 });
